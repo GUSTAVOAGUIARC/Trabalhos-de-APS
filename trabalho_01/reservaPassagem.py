@@ -2,7 +2,7 @@ from datetime import datetime
 class Passagem:
 
     agenda = []
-    qtdPassagem = 1       #Numeros de passagems para o dia e local desejado
+    qtdPassagem = 2       #Numeros de passagems para o dia e local desejado
 
     def __init__(self,nome,origem ,destino, diaIda, diaVolta):
         self.nome = nome
@@ -17,7 +17,7 @@ class Passagem:
             print(f"passagem reservada no nome de: {self.nome}, para o dia: {diaIda} e retorno {diaVolta} de {self.origem} para {self.destino}")
 
         else:
-            print("passagem não disponível  nesse período")
+            raise ValueError("Passagem não disponivel nesse periodo")
 
     def verifica(self):
 
@@ -29,9 +29,9 @@ class Passagem:
 
         for passagem in self.agenda:
             _, ini_passagem, fim_passagem, local_origem, local_destino = passagem
-            # Se houver sobreposição de datas, retorna True (já existe carro alugado)
-            if not ((fim == ini_passagem or inicio == fim_passagem ) and (origem == local_origem and destino == local_destino )):
-                passagemEncontrada =+1
+            # Se ja houver o registro de uma pasagem com o mesmo dia(ida ou volta) com os mesmos destinos entra no if
+            if ((inicio == ini_passagem or fim == fim_passagem ) and (origem == local_origem and destino == local_destino )):
+                passagemEncontrada +=1
                 if passagemEncontrada == self.qtdPassagem:
                     return False
         return True

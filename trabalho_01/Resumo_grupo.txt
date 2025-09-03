@@ -1,0 +1,18 @@
+Grupo:
+	Gustavo Aguiar
+	Gabriel Tiberius
+
+Ao desenvolver um sistema de reservas, que a interação direta com cada subsistema, passagem, hotel ou aluguel, poderia se tornar bastante complexa para o cliente.
+pois Cada módulo tem suas próprias regras de negócio e verificações de disponibilidade, o que exigiria que o usuário entendesse detalhes internos que não são relevantes
+para sua experiência de reserva.
+
+Ao aplicarmos o padrão Facade, conseguimos criar uma "fachada" única, a classe FacadeReserva, que atua como um intermediário entre o cliente e os subsistemas. 
+Com isso, conseguimos esconder toda a complexidade interna: o cliente não precisa se preocupar em verificar se o carro está disponível, o numero do quarto hotel 
+ou se tem passagem para o dia solicitado. Basta fornecer os dados básicos da viagem — nome, origem, destino, datas — e chamar um único método, reservarTudo().
+
+Dessa forma, e possivel simplificar a experiência do usuário. Ele interage com um único ponto de entrada, Além disso, a fachada também permite flexibilidade: 
+se quisermos reservar apenas um hotel ou apenas um carro, o cliente ainda tem métodos específicos à disposição, mas sem precisar conhecer os detalhes de 
+implementação de cada subsistema, como por exemplo o metodo reservarHotel() que reservara exclusivamente um quarto de hotel.
+
+Portanto, o uso do padrão Facade nos permite oferecer uma interface intuitiva, reduzindo o risco de erros, tornando o código mais organizado e mantendo a complexidade 
+do sistema oculta para o usuário final.
