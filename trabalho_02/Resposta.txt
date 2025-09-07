@@ -1,0 +1,7 @@
+Grupo: Gustavo Aguiar Caldeira
+        Gabriel Tiberius
+
+Caso seja necessário adicionar uma nova família de estilos, será necessário criar várias classes para essa nova família.
+Primeiro, criaríamos as classes concretas do Botão e da Janela para o Ubuntu, implementando todos os métodos que foram escritos 
+nas classes abstratas(abstratBotao, abstractJanela).
+Depois, seria necessário criar uma classe concreta para a fábrica que retorna os objetos da família Ubuntu
