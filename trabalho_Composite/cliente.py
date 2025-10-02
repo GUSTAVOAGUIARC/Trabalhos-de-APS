@@ -31,19 +31,23 @@ def main():
     print(cardapio.imprimir_arvore())
 
     # Concluir Subtarefas
+    print('\n CONCLUINDO SUBTAREFAS:')
     Sub_Tarefa('Coca-Cola').concluir()
     Sub_Tarefa('Lasanha').concluir()
     Sub_Tarefa('Pizza').concluir()
     print(cardapio.imprimir_arvore())
 
     # concluir tarefas
+    print('\n CONCLUINDO TAREFAS:')
     sobremesas.concluir()
     print(cardapio.imprimir_arvore())
 
     # desfazer conclusão
+    print('\n DESFAZENDO CONCLUSÕES:')
     Sub_Tarefa('Pizza').desfazer()
     print(cardapio.imprimir_arvore())
 
+    print('\n DESFAZENDO todas as conclusões:')
     cardapio.desfazer()
     print(cardapio.imprimir_arvore())
 

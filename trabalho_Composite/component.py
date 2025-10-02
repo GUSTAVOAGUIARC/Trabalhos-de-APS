@@ -1,6 +1,6 @@
 from __future__ import annotations   # permite referenciar uma classe que ainda não foi definida (não é necessário em versões mais novas do Python)
 from abc import ABC, abstractmethod
-from typing import List, Optional
+from typing import Optional
 
 
 class Tarefa(ABC):
@@ -12,7 +12,7 @@ class Tarefa(ABC):
     def definir_pai(self, pai: Optional[Tarefa]) -> None:
         self.pai = pai
 
-    @property
+    @property                                           # o property permite acessar o método como se fosse um atributo
     def concluida(self) -> bool:
         return self._concluida
 
@@ -31,7 +31,7 @@ class Tarefa(ABC):
             s += filho.imprimir_arvore(identacao + "    ")
         return s
 
-    # 🔥 Adicione este método
+    
     def _notificar_pai(self) -> None:
         if self.pai is not None:
-            self.pai.atualizar_conclusao_filhos()
+            self.pai.atualizar_conclusao()
