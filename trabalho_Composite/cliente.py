@@ -3,9 +3,10 @@ from leaf import Sub_Tarefa
 
 
 def main():
+    #nivel 1
     cardapio = Composite('Cardápio')
 
-    # Categorias principais
+    # Categorias principais  nivel 2
     bebidas = Composite('Bebidas')
     pratos = Composite('Pratos')
     sobremesas = Composite('Sobremesas')
@@ -14,17 +15,46 @@ def main():
     cardapio.adicionar(pratos)
     cardapio.adicionar(sobremesas)
 
-    # Bebidas
-    bebidas.adicionar(Sub_Tarefa('Coca-Cola'))
-    bebidas.adicionar(Sub_Tarefa('Suco de Laranja'))
+    # Bebidas  nivel 3
+    refrigerantes = Composite('Refrigerantes')
+    sucos = Composite('Sucos')
+    bebidas.adicionar(refrigerantes)
+    bebidas.adicionar(sucos)
+    
+    # bebidas nivel 4
+    coca = Sub_Tarefa('Coca-Cola')
+    guarana = Sub_Tarefa('Guaraná')
+    suco_laranja = Sub_Tarefa('Suco de Laranja')
+    suco_uva = Sub_Tarefa('Suco uva')
 
-    # Pratos
-    pratos.adicionar(Sub_Tarefa('Pizza'))
-    pratos.adicionar(Sub_Tarefa('Lasanha'))
+    refrigerantes.adicionar(coca)
+    refrigerantes.adicionar(guarana)
+    sucos.adicionar(suco_laranja)
+    sucos.adicionar(suco_uva)
 
-    # Sobremesas
-    sobremesas.adicionar(Sub_Tarefa('Pudim'))
-    sobremesas.adicionar(Sub_Tarefa('Sorvete'))
+    # Pratos nivel 3
+    pizza = Sub_Tarefa('Pizza')
+    lasanha = Sub_Tarefa('Lasanha')
+    espaguete = Sub_Tarefa('Espaguete')
+    risoto = Sub_Tarefa('Risoto')
+    salada = Sub_Tarefa('Salada')
+    carne = Sub_Tarefa('Carne')
+
+    pratos.adicionar(pizza)
+    pratos.adicionar(lasanha)
+    pratos.adicionar(espaguete)
+    pratos.adicionar(risoto)
+    pratos.adicionar(salada)
+    pratos.adicionar(carne)
+
+    # Sobremesas nivel 3
+    doces = Composite('Doces')
+    sobremesas.adicionar(doces)
+
+    pudim = Sub_Tarefa('Pudim')
+    sorvete = Sub_Tarefa('Sorvete')
+    doces.adicionar(pudim)
+    doces.adicionar(sorvete)
 
     # Imprimir estado inicial
     print('\n ESTADO INICIAL DO CARDÁPIO:')
@@ -32,19 +62,20 @@ def main():
 
     # Concluir Subtarefas
     print('\n CONCLUINDO SUBTAREFAS:')
-    Sub_Tarefa('Coca-Cola').concluir()
-    Sub_Tarefa('Lasanha').concluir()
-    Sub_Tarefa('Pizza').concluir()
+    coca.concluir()
+    lasanha.concluir()
+    pizza.concluir()
+    suco_laranja.concluir()
     print(cardapio.imprimir_arvore())
 
     # concluir tarefas
     print('\n CONCLUINDO TAREFAS:')
-    sobremesas.concluir()
+    refrigerantes.concluir()
     print(cardapio.imprimir_arvore())
 
     # desfazer conclusão
     print('\n DESFAZENDO CONCLUSÕES:')
-    Sub_Tarefa('Pizza').desfazer()
+    pizza.desfazer()
     print(cardapio.imprimir_arvore())
 
     print('\n DESFAZENDO todas as conclusões:')

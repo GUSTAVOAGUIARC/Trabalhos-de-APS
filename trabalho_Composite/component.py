@@ -23,6 +23,10 @@ class Tarefa(ABC):
     @abstractmethod
     def desfazer(self) -> None:
         pass
+    
+    @abstractmethod
+    def obter_filhos(self):
+        pass
 
     def imprimir_arvore(self, identacao: str = "") -> str:
         status = "[CONCLUÍDA]" if self.concluida else "[NÃO CONCLUÍDA]"
