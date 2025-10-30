@@ -1,6 +1,6 @@
 from __future__ import annotations   # permite referenciar uma classe que ainda não foi definida (não é necessário em versões mais novas do Python)
-from abc import ABC, abstractmethod
-from typing import Optional
+from abc import ABC, abstractmethod     
+from typing import Optional  
 
 
 class Tarefa(ABC):
@@ -23,7 +23,7 @@ class Tarefa(ABC):
     @abstractmethod
     def desfazer(self) -> None:
         pass
-    
+
     @abstractmethod
     def obter_filhos(self):
         pass
